@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-use lib "/Users/Elena/perl5/lib/perl5";
+use lib "/home/zhihan/perl5/lib/perl5";
 use HTML::Obliterate qw(extirpate_html);
 use Spreadsheet::WriteExcel;
 use Lingua::Stem;
@@ -106,11 +106,18 @@ sub auto_surprise_scissor{
 	#3. remove javascript
 	#4. remove label
 	#5. remove url
+	#6. remove spec char
+	#7. stem word
+	#8. remove empty files
 	&change_to_lower_case__from_files();
 	&remove_css_style();
 	&remove_javascript();
 	&remove_label();
-	&remove_url_from_files();
+	&remove_url_from_files();	
+	&remove_special_words_from_files();
+	&stem_words_in_files();
+	&remove_empty_file();
+
 }
 
 sub change_work_dir {
