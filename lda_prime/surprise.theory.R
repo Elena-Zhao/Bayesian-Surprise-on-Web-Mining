@@ -1,6 +1,5 @@
 surprise.theory <- function(theta){
- 
-result <- new.env();
+  result <- new.env();
   #result <- null;
   r <- remove.nosensen(theta);
   surprise_array <- get.all.surprise.internal(r);

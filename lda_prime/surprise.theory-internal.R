@@ -23,11 +23,11 @@ calculate.surprise <- function(pre, nex, dataDis){
   #    print(temp2[i])
     
     #Computing suprise for each model
-    if(temp2[i]==0 || temp[i]==0){
-      surprises[i]=0;
-    }else{
-      surprises[i] <- log(temp2[i]/temp[i], base = 2)
-    }
+        if(temp2[i]==0 || temp[i]==0){
+            surprises[i]=0;
+        }else{
+            surprises[i] <- log(temp2[i]/temp[i], base = 2)
+        }
     }
 
     surprise <- 0;
@@ -46,6 +46,7 @@ remove.nosensen <- function(theta){
   result <- (theta+(1/n_col))/2;
   return (result); 
 }
+
 # result <- result  from remove.nonsense
 get.all.surprise.internal <- function(result){
   n_row <- nrow(result);
@@ -56,8 +57,6 @@ get.all.surprise.internal <- function(result){
   for(j in 1:n_col){
     sum_of_col[j] <- sum(result[,j]);   #计算每一列的和
   }
-  
-  
   
   left_row_average <- array(dim=n_col) #剩余行的均值
   current_row <- array(dim=n_col)  #当前处理的行
